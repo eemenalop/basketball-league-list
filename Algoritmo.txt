@@ -1,0 +1,14 @@
+1. Anotar jugadores en lista.
+
+2. Definir equipos, 2 de 5 jugadores.
+
+3. Los 2 primeros equipos lo formaran los 2 primeros
+jugadores, por turno... ej: Jugador 1 elige entre
+los jugadores del 3 al 10, luego el jugador 2 elige 
+entre los que queden sin repetir, hasta formar 5.
+
+4. Marcar como ganador a 1 equipo, este repite el juego 
+con los jugadores siguientes de la lista, al mismo tiempo
+los jugadores que perdieron van a la lista de espera.
+
+5. 
