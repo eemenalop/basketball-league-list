@@ -31,7 +31,17 @@ h2{
     flex-direction: column;
 }
 
-#list > div{
+#list > li{
     margin-left: 10px;
     margin: 10px, 10px;
+    cursor: pointer;
+}
+
+#list > li:hover{
+    background-color: aqua;
+    
+}
+
+.player-selected {
+    background-color: aqua;
 }
