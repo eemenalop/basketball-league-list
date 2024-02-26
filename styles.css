@@ -12,14 +12,11 @@ body{
     background-color:cadetblue;
     margin: 40px;
     padding: 5px;
+    display: flex;
 }
 
-.add-player{
+.add-player-container{
     margin: 20px;
-}
-
-h2{
-    margin-left: 20px;
 }
 
 #list {
@@ -27,7 +24,7 @@ h2{
     width: 200px;
     background-color: white;
     display:flex;
-    margin: 20px;
+    
     flex-direction: column;
 }
 
@@ -44,4 +41,10 @@ h2{
 
 .player-selected {
     background-color: aqua;
+}
+
+.current-game{  
+    height: 200px;
+    width: 200px;
+    background-color: red;
 }

@@ -6,28 +6,31 @@
     <title>Lista de Jugadores</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-    <div class="main-frame">
-        <section class="add-player">
-                <h2>Add Player</h2>
-                <input type="text" name="txtPlayer" id="player" placeholder="Inserte el jugador" required>
-                    <section class="add-players-btns">
-                            <button type="button" id="removePlayerBtn">Remove Player</button>
-                            <button type="button" id="addPlayerBtn">Add Player</button>
-                    </section>
+    <body>
+        <div class="main-frame">
+            <section class="add-player-container">
+                <div class="add-player-handler">
+                    <h3>Add Player</h3>
+                        <input type="text" name="txtPlayer" id="player" placeholder="Inserte el jugador" required>
+                            <section class="add-players-btns">
+                                <button type="button" id="removePlayerBtn">Remove Player</button>
+                                <button type="button" id="addPlayerBtn">Add Player</button>
+                            </section>
+                </div>
+                        <section class="playersList">
+                            <h2>Players List</h2>
+                            <ol id="list">
+                            </ol>
+                        </section> 
             </section>
 
-            <section class="playersList">
-                <h2>Players List</h2>
-                <ol id="list">
-                </ol>
-            </section> 
+            
             
             <section class="current-game">
-                <div></div>
+                <div id="equipoA"></div>
+                <div id="equipoB"></div>
             </section>
-            
-            <script src="script.js"></script>
         </div>
-  </body>
+        <script src="script.js"></script>
+    </body>
 </html>
