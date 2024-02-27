@@ -4,6 +4,10 @@ body{
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .main-frame{
@@ -13,19 +17,32 @@ body{
     margin: 40px;
     padding: 5px;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .add-player-container{
-    margin: 20px;
+    margin: 30px 30px 30px 30px;
+}
+
+.add-players-btns{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.add-players-btns button {
+    font-size: smaller;
+    border-radius: 10px;
+    font-family: inherit;
 }
 
 #list {
     height: 300px;
     width: 200px;
     background-color: white;
-    display:flex;
-    
-    flex-direction: column;
+    overflow-y: scroll;
+    margin-left: 20px;
 }
 
 #list > li{
@@ -35,16 +52,48 @@ body{
 }
 
 #list > li:hover{
-    background-color: aqua;
+    background-color: #3468C0;
+    font-weight: bold;
     
 }
 
 .player-selected {
-    background-color: aqua;
+    background-color: #3468C0;
+    font-weight: bold;
 }
 
-.current-game{  
+.current-game{
     height: 200px;
-    width: 200px;
-    background-color: red;
+    width: 250px;
+    margin: 30px;
+    
+}
+
+#assignToATeamBtn{
+    width: 80%;
+    margin-left: 25px;
+    margin-bottom: 20px;
+    font-family: inherit;
+}
+.current-game-container{
+    height: 70%;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    margin-left: 25px;
+    
+}
+
+#teamA{
+    width: 40%;
+    background-color: rgb(255, 30, 0);
+    margin: 10px;
+    
+}
+
+#teamB{
+    width: 40%;
+    background-color: rgb(20, 212, 6);
+    margin: 10px;
+    
 }
