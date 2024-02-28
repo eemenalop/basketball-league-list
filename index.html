@@ -13,28 +13,34 @@
         <div class="main-frame">
             <section class="add-player-container">
                 <div class="add-player-handler">
-                        <label for="player">Insert a Player</label>
-                        <input type="text" name="txtPlayer" id="player" placeholder="Insert a player" required>
-                            <section class="add-players-btns">
-                                <button type="button" id="addPlayerBtn">Add Player</button>
-                                <button type="button" id="removePlayerBtn">Remove Player</button>
-                            </section>
+                    <label for="player">Insert a Player</label>
+                    <input type="text" name="txtPlayer" id="player" placeholder="Insert a player" required>
+                        <section class="add-players-btns">
+                            <button type="button" id="addPlayerBtn">Add Player</button>
+                            <button type="button" id="removePlayerBtn">Remove Player</button>
+                        </section>
                 </div>
-                    <section class="playersList">
+                        <section class="playersList">
                             <h2>Players List</h2>
-                            <ol id="list">
-                            </ol>
-                    </section> 
+                            <ol id="list"></ol>
+                        </section> 
             </section>
 
             
             
             <section class="current-game">
-                <button type="button" id="assignToATeamBtn">Assign to a Team</button>
+                <div class="current-game-btns">
+                    <button type="button" id="assignToTeamABtn">Assign to Team A</button>
+                    <button type="button" id="assignToTeamBBtn">Assign to Team B</button>
+                </div>    
                 <div class="current-game-container">
-                    <div id="teamA"></div>
-                    <div id="teamB"></div>
-                </div>
+                        <div>
+                            <ol id="teamA"></ol>
+                        </div>
+                        <div>
+                            <ol id="teamB"></ol>
+                        </div>
+                    </div>
             </section>
         </div>
         <script src="script.js"></script>

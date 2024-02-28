@@ -4,8 +4,11 @@ let addPlayerBtn = document.getElementById("addPlayerBtn");
 let removePlayerBtn = document.getElementById("removePlayerBtn");
 let list = document.getElementById("list");
 let teamA = document.getElementById("teamA");
+let arrTeamA = [];
 let teamB = document.getElementById("teamB");
-let assignToATeamBtn = document.getElementById('assignToATeamBtn')
+let arrTeamB = [];
+let assignToTeamABtn = document.getElementById('assignToTeamABtn')
+let assignToTeamBBtn = document.getElementById('assignToTeamBBtn')
 
 
 //Event listeners to each list item
@@ -16,6 +19,16 @@ const assignEventListeners = () => {
     });
 }
 
+//Highlight the player selected
+const selectPlayer = (event) => {
+    const selectedPlayer = event.target
+
+    document.querySelectorAll('#list .player-selected')
+        .forEach(player => player.classList.remove('player-selected'));
+
+    selectedPlayer.classList.toggle("player-selected");
+
+}
 
 //Add Player to list
 const addPlayer = () => {
@@ -38,10 +51,6 @@ const addPlayer = () => {
     assignEventListeners();
 }
 
-//Highlight the player selected
-const selectPlayer = (event) => {
-    event.target.classList.toggle("player-selected");
-}
 
 //Remove player from list
 const removeSelectedPlayer = () => {
@@ -58,13 +67,11 @@ const removeSelectedPlayer = () => {
     }
 }
 
-removePlayerBtn.addEventListener("click", removeSelectedPlayer);
-addPlayerBtn.addEventListener("click", addPlayer);
 
 //Add player automatically
 const autoAddPlayers = () => {
     let randomPlayer = `Player ${playersList.length + 1}`;
-    if (Math.random() > 0.7) {
+    if (Math.random() > 0.5) {
         playersList.push(randomPlayer);
         list.innerHTML += `<li>${randomPlayer}</li>`;
         assignEventListeners();
@@ -74,28 +81,38 @@ setInterval(autoAddPlayers, 1000);
 
 
 //Assign player to a team
-
-let playersAssignedToTeamA = 0;
-let playersAssignedToTeamB = 0;
-const maxPlayersPerTeam = 5;
-
-const assignSelectedPlayerToTeam = () => {
+const assignSelectedPlayerToTeam = (arr, team) => {
 
     const selectedPlayer = document.querySelector('#list .player-selected');
 
     if (!selectedPlayer) {
-        alert('Please select a player to assign to a team');
+        alert('Please select a player to assign');
         return;
     }
 
-    if (playersAssignedToTeamA < maxPlayersPerTeam) {
-        teamA.innerHTML += `<li>${selectedPlayer.textContent}</li>`;
-        playersAssignedToTeamA++;
-    } else if (playersAssignedToTeamB < maxPlayersPerTeam) {
-        teamB.innerHTML += `<li>${selectedPlayer.textContent}</li>`;
-        playersAssignedToTeamB++;
-    } alert('Both teams have reached the maximum number of players')
+    if (arr.length >= 5) {
+        alert(`Team: ${team} is full`)
+        return;
+    }
+    const playerName = selectedPlayer.textContent;
+    if (arr.includes(playerName)) {
+        alert(`Player: ${playerName} already assigned to team ${team}`)
+        return;
+    }
+
+
+    arr.push(playerName);
+    selectedPlayer.classList.remove('player-selected');
+
+    console.log(arr)
 }
 
-assignToATeamBtn.addEventListener('click', assignSelectedPlayerToTeam);
+addPlayerBtn.addEventListener("click", addPlayer);
+removePlayerBtn.addEventListener("click", removeSelectedPlayer);
+assignToTeamABtn.addEventListener('click', () => {
+    assignSelectedPlayerToTeam(arrTeamA, 'Team A')
+});
+assignToTeamBBtn.addEventListener('click', () => {
+    assignSelectedPlayerToTeam(arrTeamB, 'Team B')
+});
 
