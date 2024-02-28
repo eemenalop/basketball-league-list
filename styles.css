@@ -86,18 +86,19 @@ body{
     width: 100%;
     background-color: rgb(255, 255, 255);
     display: flex;
+    font-size: 12px;
     
 }
 
 #teamA{
-    width: 40%;
+    width: 50%;
     background-color: rgb(255, 30, 0);
     margin: 10px;
     
 }
 
 #teamB{
-    width: 40%;
+    width: 50%;
     background-color: rgb(20, 212, 6);
     margin: 10px;
     

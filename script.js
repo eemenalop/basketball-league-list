@@ -67,7 +67,6 @@ const removeSelectedPlayer = () => {
     }
 }
 
-
 //Add player automatically
 const autoAddPlayers = () => {
     let randomPlayer = `Player ${playersList.length + 1}`;
@@ -81,7 +80,7 @@ setInterval(autoAddPlayers, 1000);
 
 
 //Assign player to a team
-const assignSelectedPlayerToTeam = (arr, team) => {
+const assignSelectedPlayerToTeam = (arr, teamItem, teamName) => {
 
     const selectedPlayer = document.querySelector('#list .player-selected');
 
@@ -91,17 +90,16 @@ const assignSelectedPlayerToTeam = (arr, team) => {
     }
 
     if (arr.length >= 5) {
-        alert(`Team: ${team} is full`)
+        alert(`Team: ${teamName} is full`)
         return;
     }
     const playerName = selectedPlayer.textContent;
     if (arr.includes(playerName)) {
-        alert(`Player: ${playerName} already assigned to team ${team}`)
+        alert(`Player: ${playerName} already assigned to team ${teamName}`)
         return;
     }
-
-
     arr.push(playerName);
+    teamItem.innerHTML += `<li>${playerName}</li>`
     selectedPlayer.classList.remove('player-selected');
 
     console.log(arr)
@@ -110,9 +108,9 @@ const assignSelectedPlayerToTeam = (arr, team) => {
 addPlayerBtn.addEventListener("click", addPlayer);
 removePlayerBtn.addEventListener("click", removeSelectedPlayer);
 assignToTeamABtn.addEventListener('click', () => {
-    assignSelectedPlayerToTeam(arrTeamA, 'Team A')
+    assignSelectedPlayerToTeam(arrTeamA, teamA, 'Team A')
 });
 assignToTeamBBtn.addEventListener('click', () => {
-    assignSelectedPlayerToTeam(arrTeamB, 'Team B')
+    assignSelectedPlayerToTeam(arrTeamB, teamB, 'Team B')
 });
 
