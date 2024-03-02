@@ -27,8 +27,8 @@ const selectPlayer = (event) => {
     document.querySelectorAll('#list .player-selected')
         .forEach(player => player.classList.remove('player-selected'));
 
-    document.querySelectorAll('.current-game-container li')
-        .forEach(player => player.classList.remove('player-selected'));
+    //document.querySelectorAll('.current-game-container li')
+      //  .forEach(player => player.classList.remove('player-selected'));
 
     selectedPlayer.classList.toggle("player-selected");
 
@@ -110,6 +110,11 @@ const assignSelectedPlayerToTeam = (arr, teamItem, teamName, opponentTeamArr, op
         alert(`Player ${playerName} has already assigned to team ${opponentTeamName}`)
         return;
     }
+
+    if (playersList.indexOf(playerName) > 9) {
+        alert('Only the first 10 players can be added to Team A or Team B')
+        return;
+    }
     arr.push(playerName);
     teamItem.innerHTML += `<li>${playerName}</li>`
     selectedPlayer.classList.remove('player-selected');
@@ -138,3 +143,6 @@ assignToTeamBBtn.addEventListener('click', () => {
     assignSelectedPlayerToTeam(arrTeamB, teamB, 'Team B', arrTeamA, 'Team A')
 });
 
+//Manage the list of next player
+
+export { arrTeamA, arrTeamB};
