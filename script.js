@@ -120,6 +120,7 @@ const assignSelectedPlayerToTeam = (arr, teamItem, teamName, opponentTeamArr, op
 
 addPlayerBtn.addEventListener("click", addPlayer);
 removePlayerBtn.addEventListener("click", () => { removeSelectedPlayer(playersList, '#list .player-selected') });
+
 removePlayerFromTeamBtn.addEventListener("click", () => {
     const selectedPlayerInTeamA = document.querySelector('#teamA li.player-selected');
 
@@ -129,7 +130,7 @@ removePlayerFromTeamBtn.addEventListener("click", () => {
         removeSelectedPlayer(arrTeamB, '#teamB li.player-selected');
     }
 });
-//removePlayerFromTeamBtn.addEventListener("click", () => { removeSelectedPlayer(arrTeamB, '#teamB li.player-selected') });
+
 assignToTeamABtn.addEventListener('click', () => {
     assignSelectedPlayerToTeam(arrTeamA, teamA, 'Team A', arrTeamB, 'Team B')
 });
