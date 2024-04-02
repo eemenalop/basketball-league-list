@@ -1,5 +1,5 @@
-import {playersList} from "./script.js"
-import { assignEventListeners} from './script.js'
+import {playersList, assignEventListeners} from "./script.js"
+
 
 let addPlayerBtn = document.getElementById("addPlayerBtn");
 let playerInput = document.getElementById("player");
@@ -11,6 +11,7 @@ let arrTeamB = [];
 let assignToTeamABtn = document.getElementById('assignToTeamABtn')
 let assignToTeamBBtn = document.getElementById('assignToTeamBBtn')
 let removePlayerFromTeamBtn = document.getElementById('removePlayerFromTeamBtn')
+let winnerTeamBtn = document.getElementById('winner-team-btn')
 
 //Add Player to list
 const addPlayer = () => {
@@ -91,6 +92,7 @@ const assignSelectedPlayerToTeam = (arr, teamItem, teamName, opponentTeamArr, op
     assignEventListeners('.current-game-container li')
 }
 
+//Remove player from a team
 removePlayerFromTeamBtn.addEventListener("click", () => {
     const selectedPlayerInTeamA = document.querySelector('#teamA li.player-selected');
 
@@ -108,3 +110,20 @@ assignToTeamBBtn.addEventListener('click', () => {
     assignSelectedPlayerToTeam(arrTeamB, teamB, 'Team B', arrTeamA, 'Team A')
 });
 
+// Select a winner team
+const winnerTeam = () => {
+    const selectedTeam = document.querySelector('.current-game-container ol');
+
+    if(selectedTeam){
+        const liElements = selectedTeam.querySelectorAll('li')
+        const nextPlayers = [];
+
+        liElements.forEach(li => {
+            nextPlayers.push(li.textContent)
+        })
+        
+        console.log(nextPlayers)
+    }
+};
+
+winnerTeamBtn.addEventListener('click', winnerTeam)
