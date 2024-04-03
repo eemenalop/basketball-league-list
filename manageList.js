@@ -52,12 +52,12 @@ const removeSelectedPlayer = (arr, classes) => {
     console.log(arr)
 }
 
-removePlayerBtn.addEventListener("click", () => { removeSelectedPlayer(playersList, '#list .player-selected') });
+removePlayerBtn.addEventListener("click", () => { removeSelectedPlayer(playersList, '#list .selected') });
 
 //Assign player to a team
 const assignSelectedPlayerToTeam = (arr, teamItem, teamName, opponentTeamArr, opponentTeamName) => {
 
-    const selectedPlayer = document.querySelector('#list .player-selected');
+    const selectedPlayer = document.querySelector('#list .selected');
 
     if (!selectedPlayer) {
         alert('Please select a player to assign');
@@ -86,7 +86,7 @@ const assignSelectedPlayerToTeam = (arr, teamItem, teamName, opponentTeamArr, op
     }
     arr.push(playerName);
     teamItem.innerHTML += `<li>${playerName}</li>`
-    selectedPlayer.classList.remove('player-selected');
+    selectedPlayer.classList.remove('.selected');
 
     console.log(arr)
     assignEventListeners('.current-game-container li')
@@ -94,12 +94,12 @@ const assignSelectedPlayerToTeam = (arr, teamItem, teamName, opponentTeamArr, op
 
 //Remove player from a team
 removePlayerFromTeamBtn.addEventListener("click", () => {
-    const selectedPlayerInTeamA = document.querySelector('#teamA li.player-selected');
+    const selectedPlayerInTeamA = document.querySelector('#teamA li.selected');
 
     if (selectedPlayerInTeamA) {
-        removeSelectedPlayer(arrTeamA, '#teamA li.player-selected');
+        removeSelectedPlayer(arrTeamA, '#teamA li.selected');
     } else {
-        removeSelectedPlayer(arrTeamB, '#teamB li.player-selected');
+        removeSelectedPlayer(arrTeamB, '#teamB li.selected');
     }
 });
 
@@ -112,7 +112,7 @@ assignToTeamBBtn.addEventListener('click', () => {
 
 // Select a winner team
 const winnerTeam = () => {
-    const selectedTeam = document.querySelector('.current-game-container ol');
+    const selectedTeam = document.querySelector('.current-game-container ol.selected');
 
     if(selectedTeam){
         const liElements = selectedTeam.querySelectorAll('li')
