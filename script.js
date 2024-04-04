@@ -13,14 +13,17 @@ export const assignEventListeners = (classes) => {
 const selectPlayer = (event) => {
     const selectedPlayer = event.target
 
-    document.querySelectorAll('#list .player-selected')
-        .forEach(player => player.classList.remove('player-selected'));
+
+    document.querySelectorAll('#list .selected')
+        .forEach(player => player.classList.remove('selected'));
 
     document.querySelectorAll('.current-game-container li')
-      .forEach(player => player.classList.remove('player-selected'));
+        .forEach(player => player.classList.remove('selected'));
 
-    selectedPlayer.classList.toggle("player-selected");
+    document.querySelectorAll('.current-game-container ol')
+        .forEach(player => player.classList.remove('selected'));
 
+    selectedPlayer.classList.toggle("selected");
 }
 
 //Add player automatically
@@ -33,5 +36,6 @@ const autoAddPlayers = () => {
     }
 }
 setInterval(autoAddPlayers, 1000);
+
 
 

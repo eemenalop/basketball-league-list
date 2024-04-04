@@ -58,7 +58,7 @@ li:hover{
     
 }
 
-.player-selected {
+.selected {
     background-color: #04040437;
     font-weight: bold;
 }
@@ -111,4 +111,16 @@ button{
 
 #winner-team-btn {
     width: 100%;
+}
+
+.current-game-container > div > ol{
+    cursor: pointer;
+}
+
+.current-game-container > div > ol:hover{
+    color: rgb(213, 7, 7);
+}
+
+.current-game-container > div > ol.selected{
+    color: rgb(213, 7, 7);
 }
