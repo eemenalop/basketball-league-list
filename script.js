@@ -13,7 +13,6 @@ export const assignEventListeners = (classes) => {
 const selectPlayer = (event) => {
     const selectedPlayer = event.target
 
-
     document.querySelectorAll('#list .selected')
         .forEach(player => player.classList.remove('selected'));
 
