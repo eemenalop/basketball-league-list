@@ -111,34 +111,41 @@ assignToTeamBBtn.addEventListener('click', () => {
 });
 
 // Select a winner team
+let winnerSelected = false;
+
 const winnerTeam = () => {
 
     const selectedTeam = document.querySelector('.current-game-container ol.selected');
     const nextPlayers = [];
-
+    
     if (!selectedTeam) {
         alert('Seleccione un equipo ganador')
         return;
     }
-
+    
+    if(winnerSelected){
+        alert('Ya se ha seleccionado un equipo ganador')
+        return;
+    }
 
     if (selectedTeam) {
         const liElements = selectedTeam.querySelectorAll('li')
-
+        
         liElements.forEach(li => {
             nextPlayers.push(li.textContent)
         })
-    }
+        if (nextPlayers.length !== 5) {
+            alert('Debe haber 5 jugadores en el equipo ganador')
+            return;
+            }
+        }
+        const confirmation = confirm('Estas seguro de que el equipo seleccionado ha ganado?')
 
-    if (nextPlayers.lenght !== 5) {
-        alert('Debe haber 5 jugadores en el equipo ganador')
-        return;
-    }
-    const confirmation = confirm('Estas seguro de que el equipo seleccionado ha ganado?')
-    console.log(nextPlayers.length)
-
-    console.log(`Siguientes jugadores: ${nextPlayers}`)
-};
-
+        if (confirmation){
+            winnerSelected = true;
+        }else{
+            selectedTeam.classList.remove('selected')
+        }
+    };
 assignEventListeners('.current-game-container ol')
 winnerTeamBtn.addEventListener('click', winnerTeam)
