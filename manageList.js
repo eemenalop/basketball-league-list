@@ -117,35 +117,50 @@ const winnerTeam = () => {
 
     const selectedTeam = document.querySelector('.current-game-container ol.selected');
     const nextPlayers = [];
-    
+
     if (!selectedTeam) {
         alert('Seleccione un equipo ganador')
         return;
     }
-    
-    if(winnerSelected){
+
+    if (winnerSelected) {
         alert('Ya se ha seleccionado un equipo ganador')
         return;
     }
 
     if (selectedTeam) {
-        const liElements = selectedTeam.querySelectorAll('li')
+        const listItems = document.querySelectorAll('#list li');
+        const selectedPlayers = Array.from(selectedTeam.querySelectorAll('li')).map(li => li.textContent);
+
+        listItems.forEach((li, index) => {
+            if (selectedPlayers.includes(li.textContent)) {
+                nextPlayers.push(li.textContent);
+            }
+        });
+
+
+        /*const liElements = selectedTeam.querySelectorAll('li')
         
         liElements.forEach(li => {
             nextPlayers.push(li.textContent)
-        })
+        })*/
         if (nextPlayers.length !== 5) {
             alert('Debe haber 5 jugadores en el equipo ganador')
             return;
-            }
         }
-        const confirmation = confirm('Estas seguro de que el equipo seleccionado ha ganado?')
+    }
+    const confirmation = confirm('Estas seguro de que el equipo seleccionado ha ganado?')
 
-        if (confirmation){
-            winnerSelected = true;
-        }else{
-            selectedTeam.classList.remove('selected')
-        }
-    };
+    if (confirmation) {
+        winnerSelected = true;
+        nextPlayers.sort((a, b) => a.index - b.index);
+        nextPlayers.forEach(player => {
+            nextPlayers.push(player.player)
+        })
+    } else {
+        selectedTeam.classList.remove('selected')
+    }
+    console.log(`Proximos jugadores: ${nextPlayers}`)
+};
 assignEventListeners('.current-game-container ol')
 winnerTeamBtn.addEventListener('click', winnerTeam)
